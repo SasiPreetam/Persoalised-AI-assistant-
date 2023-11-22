@@ -1,18 +1,28 @@
 
+# For google and firefox access you need to download both chrome and firefox into you system.
+
 # libraries in python to download
 
 #   1) webbrowser:
+
                     pip install webbrowser
+
 #   2) speech_recognition:
+
                     pip install SpeechRecognition
+
 #   3) pyttsx3:
+
                     pip install pyttsx3
+
 #   4) google.oauth2.credentials:
+
                     pip install google-auth-oauthlib
+
 #   5) googleapiclient.discovery:
+
                     pip install google-api-python-client
+
 #   6) requests:
+
                     pip install requests
-
-
-# For google and firefox access you need to download both chrome and firefox into you system.
