@@ -13,7 +13,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from requests import Request
 
-SCOPES = ["https://www.googleapis.com/auth/calendar"]
+SCOPES = [" ---- paste your google api code here ----"]
 
 GREEN_TEXT = '\033[91m'
 RED_TEXT = '\033[92m'
@@ -65,7 +65,10 @@ def googlecalendar():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file("C:/Users/pretam/Desktop/VS Code/python/Projects/Credentials.json", SCOPES)
+            
+            # Edit this section
+            
+            flow = InstalledAppFlow.from_client_secrets_file("----- dowload the credentials file from google cloud and paste here -----", SCOPES)
             creds = flow.run_local_server(port=0)
 
         with open("token.json", "w") as token:
@@ -93,7 +96,11 @@ def googlecalendar():
                 "RRULE:FREQ=DAILY;COUNT=3"
             ],
             "attendees": [
-                {"email": "sasipretam.k@gmail.com"},
+                
+                # Edit this section
+                
+                {"email": "<  ----  paste your email address here  ----  >"},
+                # You can add the attendee emails here
                 {"email": ""}
             ]
         }
@@ -129,31 +136,21 @@ def start_recognition():
                     str="Opening Google Chrome."
                     print(GREEN_TEXT+str+RESET_TEXT_COLOR)
                     speak(str)
-                    webbrowser.open("C:/Users/pretam/Desktop/chrome.exe") 
+
+                    # Edit this section
+                    webbrowser.open(" -------- paste the link for google chrome from your file explorer --------  ") 
                 
                 elif "open firefox" in text.lower() :
                     str="Opening firefox"
                     print(GREEN_TEXT+str+RESET_TEXT_COLOR)
                     speak(str)
-                    subprocess.Popen(["C:/Program Files/Mozilla Firefox/firefox.exe"])  
+                    subprocess.Popen([" -------- paste the link for firefox from your file explorer --------  "])  
                 
                 elif "open personal mail" in text.lower() :
                     str="Opening personal mail."
                     print(GREEN_TEXT+str+RESET_TEXT_COLOR)
                     speak(str)
-                    webbrowser.open("https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox")  
-                
-                elif "open university mail" in text.lower() :
-                    str="Opening university mail."
-                    print(GREEN_TEXT+str+RESET_TEXT_COLOR)
-                    speak(str)
-                    webbrowser.open("https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox")
-                
-                elif "open v top" in text.lower() :
-                    str="Opening v top."
-                    print(GREEN_TEXT+str+RESET_TEXT_COLOR)
-                    speak(str)
-                    webbrowser.open("https://vtop2.vitap.ac.in/vtop/initialProcess") 
+                    webbrowser.open(" -------- paste the link for personal mail id  --------  ")  
                 
                 elif "open windows terminal" in text.lower() :
                     str="Opening windows terminal."
@@ -165,7 +162,7 @@ def start_recognition():
                     str="Opening prime videos"
                     print(GREEN_TEXT+str+RESET_TEXT_COLOR)
                     speak(str)
-                    webbrowser.open("https://www.primevideo.com/?ref_=av_auth_return_redir&mrntrk=pcrid_394383628251_slid__pgrid_82649960087_pgeo_9040204_x__ptid_kwd-361165631421")     
+                    webbrowser.open(" ------- paste your prime video login link here ------- ")     
 
                 elif "sleep mode" in text.lower() :
                     str="sleep mode on"
@@ -194,7 +191,10 @@ def start_recognition():
                     speak(str)
                     googlecalendar()
 
+                # ....
 
+            # You can add the processes here 
+            
             except speech_recognition.UnknownValueError:
                 print(GREEN_TEXT+"Could you please repeat it again sir"+RESET_TEXT_COLOR)
                 speak("Could you please repeat it again.")
