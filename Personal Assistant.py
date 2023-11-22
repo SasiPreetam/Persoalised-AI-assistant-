@@ -37,6 +37,7 @@ def get_greeting():
     else:
         return "Good evening"
 
+# A safe way to trigger the speech recognition , this function is put on hold as I'm still working on it.
 def listen_for_trigger_word():
     with speech_recognition.Microphone() as mic:
         print(GREEN_TEXT+"Listening for the trigger word 'jarvis'..."+RESET_TEXT_COLOR)
@@ -55,6 +56,7 @@ def listen_for_trigger_word():
             except speech_recognition.RequestError as e:
                 print("Error occurred while requesting results; {0}".format(e))    
 
+# google calendar task management
 def googlecalendar():
     creds = None
 
@@ -111,6 +113,10 @@ def googlecalendar():
 
     except HttpError as error:
         print("An error occurred:", error)
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------- Main Program  -----------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def start_recognition():
     with speech_recognition.Microphone() as mic:
